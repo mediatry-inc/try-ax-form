@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRY AX | 無料ウェビナー申込</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F2FAF9;
+    --panel-dark: #0B4F4C;
+    --panel-dark-soft: #0E6862;
+    --ink: #123B3A;
+    --ink-soft: #56807C;
+    --ink-faint: #8FB0AC;
+    --accent: #14B8A6;
+    --accent-soft: #E3F9F5;
+    --accent-line: rgba(20, 184, 166, 0.35);
+    --line: #DCEFEC;
+    --white: #FFFFFF;
+    --amber: #FFD166;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .display {
+    font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
+  }
+
+  .wrap {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    min-height: 100vh;
+  }
+
+  /* ---------- LEFT PANEL ---------- */
+  .panel-left {
+    background: linear-gradient(115deg, #14305C 0%, #12756F 55%, #1CA88F 100%);
+    color: #E9F7F5;
+    position: relative;
+    padding: 64px 56px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 18px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .headline {
+    font-size: 44px;
+    line-height: 1.35;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0 0 20px;
+  }
+
+  .headline .accent-word {
+    color: var(--amber);
+  }
+
+  .sub {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #BFE6E1;
+    max-width: 34em;
+    font-weight: 300;
+  }
+
+  .event-meta {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .event-meta-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    font-size: 14px;
+  }
+
+  .event-meta-label {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--ink-faint);
+    letter-spacing: 0.12em;
+    width: 90px;
+    flex-shrink: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .event-meta-value {
+    color: #E9F7F5;
+    font-weight: 500;
+  }
+
+  /* signature node network */
+  .signal {
+    position: relative;
+    margin-top: 56px;
+    height: 180px;
+  }
+
+  .signal svg { width: 100%; height: 100%; overflow: visible; }
+
+  .signal-node {
+    fill: var(--amber);
+  }
+
+  .signal-node.dim { fill: #3F8C86; }
+
+  .signal-line {
+    stroke: var(--accent-line);
+    stroke-width: 1;
+    stroke-dasharray: 4 260;
+    animation: travel 5.5s linear infinite;
+  }
+
+  .signal-line:nth-child(2) { animation-delay: -1.2s; }
+  .signal-line:nth-child(3) { animation-delay: -2.6s; }
+  .signal-line:nth-child(4) { animation-delay: -3.8s; }
+
+  @keyframes travel {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -520; }
+  }
+
+  .benefits {
+    list-style: none;
+    padding: 0;
+    margin: 44px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .benefits li {
+    display: flex;
+    gap: 14px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #CDEEE9;
+  }
+
+  .benefits li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-line);
+    border: 1px solid var(--amber);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .panel-foot {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #6FB0AA;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ---------- RIGHT PANEL / FORM ---------- */
+  .panel-right {
+    padding: 72px 64px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-shell {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .form-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+
+  .form-desc {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin: 0 0 44px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 32px;
+  }
+
+  .field {
+    margin-bottom: 28px;
+  }
+
+  .field-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  .required-tag {
+    font-size: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.06em;
+    color: #C4443E;
+    background: #FCECEC;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .optional-tag {
+    font-size: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    background: #EEF0F5;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    background: var(--white);
+    border-radius: 8px;
+    padding: 13px 15px;
+    font-size: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #A9C9C5;
+  }
+
+  input:focus, textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 90px;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 12px;
+  }
+
+  input[type="date"],
+  input[type="time"] {
+    width: 100%;
+    border: 1px solid var(--line);
+    background: var(--white);
+    border-radius: 8px;
+    padding: 13px 15px;
+    font-size: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+
+  input[type="date"]:focus,
+  input[type="time"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(46%) sepia(78%) saturate(454%) hue-rotate(126deg);
+    cursor: pointer;
+  }
+
+  @media (max-width: 480px) {
+    .field-row { grid-template-columns: 1fr; }
+  }
+
+  .choice-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .choice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 13px 16px;
+    cursor: pointer;
+    transition: border-color .15s ease, background .15s ease;
+    font-size: 13.5px;
+  }
+
+  .choice:hover {
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+  }
+
+  .choice input {
+    accent-color: var(--accent);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .choice-sub {
+    color: var(--ink-faint);
+    font-size: 12px;
+    margin-left: auto;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    background: #F0FAF8;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .consent input {
+    margin-top: 3px;
+    accent-color: var(--accent);
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  .consent a { color: var(--accent); }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: transform .15s ease, background .15s ease;
+  }
+
+  .submit-btn:hover {
+    background: #0E9A8A;
+    transform: translateY(-1px);
+  }
+
+  .submit-note {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    margin-top: 14px;
+  }
+
+  /* thank you overlay */
+  .thanks {
+    display: none;
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .thanks.show { display: block; }
+  .form-shell.hide { display: none; }
+
+  .thanks-mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 22px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .thanks h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    margin: 0 0 10px;
+  }
+
+  .thanks p {
+    color: var(--ink-soft);
+    font-size: 13.5px;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+    .wrap { grid-template-columns: 1fr; }
+    .panel-left { padding: 48px 32px; }
+    .headline { font-size: 32px; }
+    .panel-right { padding: 48px 24px; }
+    .signal { height: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- LEFT: BRAND PANEL -->
+  <aside class="panel-left">
+    <div>
+      <div class="eyebrow">TRY AX SEMINAR</div>
+      <h1 class="headline display">AIを<span class="accent-word">学ぶ</span>から、<br>AIで<span class="accent-word">成果を出す</span>へ。</h1>
+      <p class="sub">企業のAI活用を、教育・定着・業務改善までワンストップで伴走支援。明日から使える視点をお届けします。</p>
+
+      <div class="event-meta">
+        <div class="event-meta-row">
+          <span class="event-meta-label">FORMAT</span>
+          <span class="event-meta-value">オンライン開催(Zoom)・参加無料</span>
+        </div>
+        <div class="event-meta-row">
+          <span class="event-meta-label">DURATION</span>
+          <span class="event-meta-value">約60分(質疑応答含む)</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="signal">
+        <svg viewBox="0 0 320 180" fill="none">
+          <line class="signal-line" x1="20" y1="150" x2="150" y2="40" />
+          <line class="signal-line" x1="150" y1="40" x2="270" y2="90" />
+          <line class="signal-line" x1="150" y1="40" x2="90" y2="120" />
+          <line class="signal-line" x1="270" y1="90" x2="230" y2="20" />
+          <circle class="signal-node" cx="20" cy="150" r="4" />
+          <circle class="signal-node dim" cx="90" cy="120" r="3" />
+          <circle class="signal-node" cx="150" cy="40" r="5" />
+          <circle class="signal-node dim" cx="230" cy="20" r="3" />
+          <circle class="signal-node" cx="270" cy="90" r="4" />
+        </svg>
+      </div>
+      <div class="panel-foot">TRY AX — AI TRANSFORMATION SERIES</div>
+    </div>
+  </aside>
+
+  <!-- RIGHT: FORM PANEL -->
+  <main class="panel-right">
+    <div class="form-shell" id="formShell">
+      <h2 class="form-title">無料ウェビナー 申込フォーム</h2>
+      <p class="form-desc">ご入力いただいた情報は、当日のご案内および関連情報のご連絡にのみ使用いたします。</p>
+
+      <form id="applyForm">
+        <!-- ▼▼ Web3Formsのアクセスキーに書き換えてください ▼▼ -->
+        <!-- 取得方法: https://web3forms.com で matsuoka@mediatry.jp を登録すると、
+             そのアドレス宛にアクセスキーが届きます。届いたキーを下のvalueに貼り付けてください。
+             （このアクセスキーが送信先メールアドレスと紐づいています） -->
+        <input type="hidden" name="access_key" value="b39c0d10-c4fe-4d04-a18a-1678e4627a5c">
+        <input type="hidden" name="subject" value="【TRY AX】ウェビナー申込がありました">
+        <input type="hidden" name="from_name" value="TRY AX 申込フォーム">
+        <!-- スパム対策用のハニーポット（人には見えない・入力があれば送信をブロック） -->
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="field">
+          <label class="field-label">お名前 <span class="required-tag">必須</span></label>
+          <input type="text" name="お名前" placeholder="山田 太郎" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label">お名前(フリガナ) <span class="optional-tag">任意</span></label>
+          <input type="text" name="フリガナ" placeholder="ヤマダ タロウ">
+        </div>
+
+        <div class="field">
+          <label class="field-label">メールアドレス <span class="required-tag">必須</span></label>
+          <input type="email" name="email" placeholder="taro.yamada@example.com" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label">会社名・組織名 <span class="optional-tag">任意</span></label>
+          <input type="text" name="会社名" placeholder="株式会社サンプル">
+        </div>
+
+        <div class="field">
+          <label class="field-label">電話番号 <span class="optional-tag">任意</span></label>
+          <input type="tel" name="電話番号" placeholder="090-1234-5678">
+        </div>
+
+        <div class="field">
+          <label class="field-label">ご希望の日時 <span class="required-tag">必須</span></label>
+          <div class="field-row">
+            <input type="date" name="希望日" required>
+            <input type="time" name="希望時間" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">AIの活用状況 <span class="optional-tag">任意</span></label>
+          <div class="choice-group">
+            <label class="choice"><input type="radio" name="AI活用状況" value="すでに業務で活用している">すでに業務で活用している</label>
+            <label class="choice"><input type="radio" name="AI活用状況" value="導入を検討中">導入を検討中</label>
+            <label class="choice"><input type="radio" name="AI活用状況" value="情報収集段階">情報収集段階</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">ご質問・ご要望 <span class="optional-tag">任意</span></label>
+          <textarea name="ご質問・ご要望" placeholder="当日聞いてみたいことがあればご記入ください"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>プライバシーポリシーに同意の上、送信します。ご入力いただいた個人情報は本セミナーのご案内以外の目的では使用いたしません。</span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">申し込む</button>
+        <div class="submit-note" id="submitNote">送信後、ご登録のメールアドレスに確認メールが届きます</div>
+      </form>
+    </div>
+
+    <div class="thanks" id="thanks">
+      <div class="thanks-mark">✓</div>
+      <h2>お申込みありがとうございます</h2>
+      <p>ご登録のメールアドレスに確認メールをお送りしました。<br>当日は皆さまにお会いできるのを楽しみにしております。</p>
+    </div>
+  </main>
+</div>
+
+<script>
+  const form = document.getElementById('applyForm');
+  const submitBtn = form.querySelector('.submit-btn');
+  const note = document.getElementById('submitNote');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const accessKey = form.querySelector('input[name="access_key"]').value;
+    if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
+      note.textContent = 'エラー: Web3Formsのアクセスキーが未設定です（HTML内のYOUR_ACCESS_KEY_HEREを書き換えてください）';
+      note.style.color = '#C4443E';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中…';
+
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        document.getElementById('formShell').classList.add('hide');
+        document.getElementById('thanks').classList.add('show');
+      } else {
+        note.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+        note.style.color = '#C4443E';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '申し込む';
+      }
+    } catch (err) {
+      note.textContent = '通信エラーが発生しました。ネット接続をご確認ください。';
+      note.style.color = '#C4443E';
+      submitBtn.disabled = false;
+      submitBtn.textContent = '申し込む';
+    }
+  });
+</script>
+
+</body>
+</html>
