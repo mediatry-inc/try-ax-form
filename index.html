@@ -519,12 +519,12 @@
 
         <div class="field">
           <label class="field-label">お名前 <span class="required-tag">必須</span></label>
-          <input type="text" name="お名前" placeholder="山田 太郎" required>
+          <input type="text" name="name" placeholder="山田 太郎" required>
         </div>
 
         <div class="field">
           <label class="field-label">お名前(フリガナ) <span class="optional-tag">任意</span></label>
-          <input type="text" name="フリガナ" placeholder="ヤマダ タロウ">
+          <input type="text" name="furigana" placeholder="ヤマダ タロウ">
         </div>
 
         <div class="field">
@@ -533,35 +533,43 @@
         </div>
 
         <div class="field">
-          <label class="field-label">会社名・組織名 <span class="optional-tag">任意</span></label>
-          <input type="text" name="会社名" placeholder="株式会社サンプル">
+          <label class="field-label">会社名・組織名 <span class="required-tag">必須</span></label>
+          <input type="text" name="company" placeholder="株式会社サンプル" required>
         </div>
 
         <div class="field">
-          <label class="field-label">電話番号 <span class="optional-tag">任意</span></label>
-          <input type="tel" name="電話番号" placeholder="090-1234-5678">
+          <label class="field-label">電話番号 <span class="required-tag">必須</span></label>
+          <input type="tel" name="phone" placeholder="090-1234-5678" required>
         </div>
 
         <div class="field">
           <label class="field-label">ご希望の日時 <span class="required-tag">必須</span></label>
-          <div class="field-row">
-            <input type="date" name="希望日" required>
-            <input type="time" name="希望時間" required>
+          <div class="choice-group">
+            <label class="choice">
+              <input type="radio" name="preferred_datetime" value="8/10(月) 15:00〜15:45" required>
+              ①8/10(月)
+              <span class="choice-sub">15:00〜15:45</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="preferred_datetime" value="8/20(木) 15:00〜15:45">
+              ②8/20(木)
+              <span class="choice-sub">15:00〜15:45</span>
+            </label>
           </div>
         </div>
 
         <div class="field">
-          <label class="field-label">AIの活用状況 <span class="optional-tag">任意</span></label>
+          <label class="field-label">AIの活用状況 <span class="required-tag">必須</span></label>
           <div class="choice-group">
-            <label class="choice"><input type="radio" name="AI活用状況" value="すでに業務で活用している">すでに業務で活用している</label>
-            <label class="choice"><input type="radio" name="AI活用状況" value="導入を検討中">導入を検討中</label>
-            <label class="choice"><input type="radio" name="AI活用状況" value="情報収集段階">情報収集段階</label>
+            <label class="choice"><input type="radio" name="ai_usage" value="すでに業務で活用している" required>すでに業務で活用している</label>
+            <label class="choice"><input type="radio" name="ai_usage" value="導入を検討中">導入を検討中</label>
+            <label class="choice"><input type="radio" name="ai_usage" value="情報収集段階">情報収集段階</label>
           </div>
         </div>
 
         <div class="field">
           <label class="field-label">ご質問・ご要望 <span class="optional-tag">任意</span></label>
-          <textarea name="ご質問・ご要望" placeholder="当日聞いてみたいことがあればご記入ください"></textarea>
+          <textarea name="message" placeholder="当日聞いてみたいことがあればご記入ください"></textarea>
         </div>
 
         <div class="field">
